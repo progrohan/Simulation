@@ -23,11 +23,11 @@ public class Predator extends Creature{
     }
 
     @Override
-    public void attackTarget(Coordinates hunterCoords, Coordinates targetCoords, GameMap map) {
-        Predator predator = (Predator) map.getEntity(hunterCoords);
-        Herbivore herbivore = (Herbivore) map.getEntity(targetCoords);
+    public void attackTarget(Coordinates hunterCoordinates, Coordinates targetCoordinates, GameMap map) {
+        Predator predator = (Predator) map.getEntity(hunterCoordinates);
+        Herbivore herbivore = (Herbivore) map.getEntity(targetCoordinates);
         herbivore.getDamage(predator.getDamage());
-        if(!herbivore.isAlive()) map.removeEntity(targetCoords);
+        if(!herbivore.isAlive()) map.removeEntity(targetCoordinates);
     }
 
 }

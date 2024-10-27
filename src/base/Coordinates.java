@@ -33,13 +33,13 @@ public class Coordinates {
         }while(!map.isFree(coordinates));
         return coordinates;
     }
-    public static Coordinates coordsToMove(Coordinates coordsFrom, int[] move){
-        int newX = coordsFrom.getX() + move[0];
-        int newY = coordsFrom.getY() + move[1];
+    public static Coordinates coordinatesToMove(Coordinates coordinatesFrom, int[] move){
+        int newX = coordinatesFrom.getX() + move[0];
+        int newY = coordinatesFrom.getY() + move[1];
         return new Coordinates(newX, newY);
     }
 
-    public static boolean isValidCoords(Coordinates coordinates, GameMap map){
+    public static boolean isValidCoordinates(Coordinates coordinates, GameMap map){
         int x = coordinates.getX();
         int y = coordinates.getY();
         return (y >= 0 && y < map.getWidth()) && (x >= 0 && x < map.getLength());

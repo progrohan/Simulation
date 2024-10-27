@@ -26,36 +26,36 @@ public abstract class Creature extends Entity {
         moveSet[3] = new int[]{0, -1};
     }
 
-    public void makeMove(GameMap map, Coordinates curCoords){
-        List<Coordinates> pathToTarget = PathFinder.findPathToTarget(map, curCoords, target);
+    public void makeMove(GameMap map, Coordinates curCoordinates){
+        List<Coordinates> pathToTarget = PathFinder.findPathToTarget(map, curCoordinates, target);
         if(pathToTarget != null){
-            if(pathToTarget.size() > 5) makeRandomMove(map, curCoords);
+            if(pathToTarget.size() > 5) makeRandomMove(map, curCoordinates);
             else{
                 for (int i = 0; i < speed; i++) {
                     Coordinates newCoords = pathToTarget.get(pathToTarget.size() - 2 - i);
-                    if(!map.isFree(newCoords)) attackTarget(curCoords, newCoords, map);
+                    if(!map.isFree(newCoords)) attackTarget(curCoordinates, newCoords, map);
                     else {
-                        map.moveEntity(curCoords, newCoords);
-                        curCoords = newCoords;
+                        map.moveEntity(curCoordinates, newCoords);
+                        curCoordinates = newCoords;
                     }
                 }
             }
-        }else makeRandomMove(map, curCoords);
+        }else makeRandomMove(map, curCoordinates);
 
     }
 
-    public abstract void attackTarget(Coordinates hunterCoords, Coordinates targetCoords, GameMap map);
+    public abstract void attackTarget(Coordinates hunterCoordinates, Coordinates targetCoords, GameMap map);
 
-    public void makeRandomMove(GameMap map, Coordinates curCoords){
+    public void makeRandomMove(GameMap map, Coordinates curCoordinates){
         Random random = new Random();
-        Coordinates newCoords;
+        Coordinates newCoordinates;
         int randMove;
         for (int i = 0; i < speed; i++) {
             do{
                 randMove = random.nextInt(0, 4);
-                newCoords = Coordinates.coordsToMove(curCoords, moveSet[randMove]);
-            }while(!Coordinates.isValidCoords(newCoords, map));
-            if(map.isFree(newCoords)) map.moveEntity(curCoords, newCoords);
+                newCoordinates = Coordinates.coordinatesToMove(curCoordinates, moveSet[randMove]);
+            }while(!Coordinates.isValidCoordinates(newCoordinates, map));
+            if(map.isFree(newCoordinates)) map.moveEntity(curCoordinates, newCoordinates);
         }
     }
 

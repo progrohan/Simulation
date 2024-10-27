@@ -11,27 +11,27 @@ import java.util.Queue;
 import java.util.Set;
 
 public class PathFinder {
-    public static List<Coordinates> findPathToTarget(GameMap map, Coordinates curCoords, String target){
+    public static List<Coordinates> findPathToTarget(GameMap map, Coordinates curCoordinates, String target){
         Map<Coordinates, Coordinates> toFrom = new HashMap<>();
         Queue<Coordinates> coordinatesToCheck = new LinkedList<>();
-        Set<Coordinates> checkedCoords = new HashSet<>();
+        Set<Coordinates> checkedCoordinates = new HashSet<>();
         int[][] shifts = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
-        coordinatesToCheck.add(curCoords);
+        coordinatesToCheck.add(curCoordinates);
         while(!coordinatesToCheck.isEmpty()){
             Coordinates cell = coordinatesToCheck.poll();
             if(!map.isFree(cell) && Objects.equals(map.getEntity(cell).getType(), target)){
-                return returnPath(toFrom, cell,curCoords);
+                return returnPath(toFrom, cell,curCoordinates);
             }
             for(int[] shift: shifts){
-                Coordinates newCoords = Coordinates.coordsToMove(cell, shift);
-                if(Coordinates.isValidCoords(newCoords, map)
-                        && !checkedCoords.contains(newCoords)
-                        && (map.isFree(newCoords) || Objects.equals(map.getEntity(newCoords).getType(), target))){
-                    coordinatesToCheck.add(newCoords);
-                    toFrom.put(newCoords, cell);
+                Coordinates newCoordinates = Coordinates.coordinatesToMove(cell, shift);
+                if(Coordinates.isValidCoordinates(newCoordinates, map)
+                        && !checkedCoordinates.contains(newCoordinates)
+                        && (map.isFree(newCoordinates) || Objects.equals(map.getEntity(newCoordinates).getType(), target))){
+                    coordinatesToCheck.add(newCoordinates);
+                    toFrom.put(newCoordinates, cell);
                 }
             }
-            checkedCoords.add(cell);
+            checkedCoordinates.add(cell);
         }
         return null;
     }

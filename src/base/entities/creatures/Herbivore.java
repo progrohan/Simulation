@@ -16,8 +16,8 @@ public class Herbivore extends Creature{
     }
 
     @Override
-    public void attackTarget(Coordinates hunterCoords, Coordinates targetCoords, GameMap map) {
-        map.removeEntity(targetCoords);
+    public void attackTarget(Coordinates hunterCoordinates, Coordinates targetCoordinates, GameMap map) {
+        map.removeEntity(targetCoordinates);
     }
 
     public void getDamage(int damage){
