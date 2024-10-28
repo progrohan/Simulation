@@ -7,6 +7,7 @@ import base.entities.Entity;
 import base.entities.utils.Health;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public abstract class Creature extends Entity {
@@ -28,10 +29,10 @@ public abstract class Creature extends Entity {
 
     public void makeMove(GameMap map, Coordinates curCoordinates){
         List<Coordinates> pathToTarget = PathFinder.findPathToTarget(map, curCoordinates, target);
-        if(pathToTarget != null){
+        if(!pathToTarget.isEmpty()){
             if(pathToTarget.size() > 5) makeRandomMove(map, curCoordinates);
             else{
-                for (int i = 0; i < speed; i++) {
+                for (int i = 0; i < speed; i++){
                     Coordinates newCoords = pathToTarget.get(pathToTarget.size() - 2 - i);
                     if(!map.isFree(newCoords)) attackTarget(curCoordinates, newCoords, map);
                     else {
@@ -41,7 +42,6 @@ public abstract class Creature extends Entity {
                 }
             }
         }else makeRandomMove(map, curCoordinates);
-
     }
 
     public abstract void attackTarget(Coordinates hunterCoordinates, Coordinates targetCoords, GameMap map);

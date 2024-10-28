@@ -1,17 +1,19 @@
 package base;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
 
 public class PathFinder {
-    public static List<Coordinates> findPathToTarget(GameMap map, Coordinates curCoordinates, String target){
+    public static List<Coordinates>  findPathToTarget(GameMap map, Coordinates curCoordinates, String target){
         Map<Coordinates, Coordinates> toFrom = new HashMap<>();
         Queue<Coordinates> coordinatesToCheck = new LinkedList<>();
         Set<Coordinates> checkedCoordinates = new HashSet<>();
@@ -33,7 +35,7 @@ public class PathFinder {
             }
             checkedCoordinates.add(cell);
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public static List<Coordinates> returnPath(Map<Coordinates, Coordinates> toFrom, Coordinates target, Coordinates start){
