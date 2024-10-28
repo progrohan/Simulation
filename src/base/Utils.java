@@ -1,6 +1,6 @@
 package base;
 
-public class utils {
+public class Utils {
     public static final int maxHerbivoreCount = 4;
     public static final int maxPredatorCount = 4;
     public static final int maxGrassCount = 6;
