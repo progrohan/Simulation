@@ -4,11 +4,8 @@ import base.Coordinates;
 import base.GameMap;
 import base.entities.Entity;
 import base.entities.creatures.Creature;
-
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 

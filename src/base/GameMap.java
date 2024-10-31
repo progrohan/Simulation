@@ -1,7 +1,6 @@
 package base;
 
 import base.entities.Entity;
-
 import java.util.HashMap;
 import java.util.Map;
 

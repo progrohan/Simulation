@@ -5,9 +5,7 @@ import base.GameMap;
 import base.PathFinder;
 import base.entities.Entity;
 import base.entities.utils.Health;
-
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 public abstract class Creature extends Entity {
