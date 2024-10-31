@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class Creature extends Entity {
-    Health health;
-    int speed;
-    int[][] moveSet;
-    String target;
+    private Health health;
+    private final int speed;
+    private final int[][] moveSet;
+    private final String target;
 
     Creature(int hp, int speed, String target){
         this.health = new Health(hp);

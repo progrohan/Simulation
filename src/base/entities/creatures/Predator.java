@@ -4,7 +4,7 @@ import base.Coordinates;
 import base.GameMap;
 
 public class Predator extends Creature{
-    String sprite = "\uD83D\uDC3A";
+    private String sprite = "\uD83D\uDC3A";
     private final int damage = 2;
 
     public Predator() {

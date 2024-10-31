@@ -5,10 +5,10 @@ import base.actions.EntitySpawnAction;
 import base.actions.MoveAllCreaturesAction;
 
 public class Simulation {
-    GameMap gameMap;
-    MapRenderer renderer;
-    int stepCounter;
-    boolean isRunning;
+    private GameMap gameMap;
+    private MapRenderer renderer;
+    private int stepCounter;
+    private boolean isRunning;
 
     Simulation(){
         this.gameMap = new GameMap();
@@ -38,4 +38,18 @@ public class Simulation {
     public void stopSimulation(){
         isRunning = false;
     }
+
+    public GameMap getGameMap() {
+        return gameMap;
+    }
+
+    public MapRenderer getRenderer() {
+        return renderer;
+    }
+
+
+    public int getStepCounter() {
+        return stepCounter;
+    }
+
 }

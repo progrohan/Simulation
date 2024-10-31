@@ -5,18 +5,18 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class GameConsole {
-    Simulation simulation;
-    Map<String, Runnable> methodsMap;
-    Thread simulationThread ;
-    Thread inputThread;
-    boolean exit;
+    private final Simulation simulation;
+    private final Map<String, Runnable> methodsMap;
+    private Thread simulationThread ;
+    private Thread inputThread;
+    private boolean exit;
 
     GameConsole(){
         exit = false;
         this.simulation = new Simulation();
         System.out.println("Добро пожаловать в симуляцию\nВедите команду help, " +
                             "чтобы получить список доступных команд");
-        simulation.renderer.render(simulation.gameMap);
+        simulation.getRenderer().render(simulation.getGameMap());
         methodsMap = new HashMap<>();
         methodsMap.put("step", simulation::nextTurn);
         methodsMap.put("start", this::startSimulationThread);

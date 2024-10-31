@@ -2,7 +2,7 @@ package base.entities;
 
 
 public abstract class Entity {
-    String sprite;
+    private String sprite;
     public String  getType(){
         return this.getClass().getSimpleName();
     }

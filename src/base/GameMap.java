@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GameMap {
-    Map<Coordinates, Entity> entityList;
+    private final Map<Coordinates, Entity> entityList;
     private final int length;
     private final int width;
 
