@@ -4,16 +4,10 @@ import base.Coordinates;
 import base.GameMap;
 
 public class Predator extends Creature{
-    private String sprite = "\uD83D\uDC3A";
     private final int damage = 2;
 
     public Predator() {
         super(10, 1, "Herbivore");
-    }
-
-    @Override
-    public String getSprite() {
-        return sprite;
     }
 
     public void attack(Creature creature){}

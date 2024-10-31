@@ -13,7 +13,7 @@ public class MapRenderer {
                 Coordinates coordinates = new Coordinates(i, j);
                 if(!map.isFree(coordinates)){
                     Entity entity = map.getEntity(coordinates);
-                    System.out.print(entity.getSprite() + " ");
+                    System.out.print(getSprite(entity) + " ");
                 }else{
                     System.out.print(".. ");
                 }
@@ -21,5 +21,16 @@ public class MapRenderer {
             System.out.println();
         }
         System.out.println("==============================");
+    }
+
+    private String getSprite(Entity entity){
+        return switch (entity.getType()) {
+            case "Herbivore" -> "\uD83D\uDC30";
+            case "Predator" -> "\uD83D\uDC3A";
+            case "Grass" -> "\uD83C\uDF3F";
+            case "Rock" -> "\uD83E\uDEA8";
+            case "Tree" -> "\uD83C\uDF32";
+            default -> "";
+        };
     }
 }
