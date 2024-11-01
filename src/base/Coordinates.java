@@ -39,12 +39,6 @@ public class Coordinates {
         return new Coordinates(newX, newY);
     }
 
-    public static boolean isValidCoordinates(Coordinates coordinates, GameMap map){
-        int x = coordinates.getX();
-        int y = coordinates.getY();
-        return (y >= 0 && y < map.getWidth()) && (x >= 0 && x < map.getLength());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

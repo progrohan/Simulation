@@ -29,6 +29,12 @@ public class GameMap {
         return length;
     }
 
+    public boolean isValidCoordinate(Coordinates coordinates){
+        int x = coordinates.getX();
+        int y = coordinates.getY();
+        return (x >= 0 && x < width) && (y >= 0 && y < length);
+    }
+
     public boolean isFree(Coordinates coordinates){
         return !entityList.containsKey(coordinates);
     }

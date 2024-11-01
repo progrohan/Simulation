@@ -25,7 +25,7 @@ public class PathFinder {
             }
             for(int[] shift: shifts){
                 Coordinates newCoordinates = Coordinates.coordinatesToMove(cell, shift);
-                if(Coordinates.isValidCoordinates(newCoordinates, map)
+                if(map.isValidCoordinate(newCoordinates)
                         && !checkedCoordinates.contains(newCoordinates)
                         && (map.isFree(newCoordinates) || Objects.equals(map.getEntity(newCoordinates).getType(), target))){
                     coordinatesToCheck.add(newCoordinates);

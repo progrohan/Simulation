@@ -52,7 +52,7 @@ public abstract class Creature extends Entity {
             do{
                 randMove = random.nextInt(0, 4);
                 newCoordinates = Coordinates.coordinatesToMove(curCoordinates, moveSet[randMove]);
-            }while(!Coordinates.isValidCoordinates(newCoordinates, map));
+            }while(!map.isValidCoordinate(newCoordinates));
             if(map.isFree(newCoordinates)) map.moveEntity(curCoordinates, newCoordinates);
         }
     }
