@@ -19,20 +19,6 @@ public class Coordinates {
         return y;
     }
 
-    public static Coordinates generateFreeCoordinates(GameMap map){
-        int width = map.getWidth();
-        int length = map.getLength();
-        Random random = new Random();
-        int randomX;
-        int randomY;
-        Coordinates coordinates;
-        do{
-            randomX = random.nextInt(0,width);
-            randomY = random.nextInt(0, length);
-            coordinates = new Coordinates(randomX, randomY);
-        }while(!map.isFree(coordinates));
-        return coordinates;
-    }
     public static Coordinates coordinatesToMove(Coordinates coordinatesFrom, int[] move){
         int newX = coordinatesFrom.getX() + move[0];
         int newY = coordinatesFrom.getY() + move[1];
